@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="VacinaApi.Tests/VacinaApi.Tests.csproj" />
+  <Project Path="VacinaApi/VacinaApi.csproj" />
+</Solution>

@@ -6,7 +6,7 @@ public static class Utils
   {
     if (cpf.Length != 11)
     {
-      error_message = "CPF inválido. Não contém 11 caracteres";
+      error_message = "CPF must have 11 digits";
       return false;
     }
 
@@ -14,14 +14,14 @@ public static class Utils
     {
       if (!int.TryParse(digit.ToString(), out int parsedDigit))
       {
-        error_message = "CPF inválido. Todos os caracteres precisam ser números";
+        error_message = "CPF must contain only numbers";
         return false;
       }
     }
 
     if (cpf.Distinct().Count() <= 1)
     {
-      error_message = "CPF inválido";
+      error_message = "Invalid CPF";
       return false;
     }
 
@@ -37,7 +37,7 @@ public static class Utils
 
     if (rightDigits[0] != (leftSum1 * 10 % 11 % 10))
     {
-      error_message = "CPF inválido";
+      error_message = "Invalid CPF";
       return false;
     }
 
@@ -51,7 +51,7 @@ public static class Utils
 
     if (rightDigits[1] != (leftSum2 * 10 % 11 % 10))
     {
-      error_message = "CPF inválido";
+      error_message = "Invalid CPF";
       return false;
     }
 

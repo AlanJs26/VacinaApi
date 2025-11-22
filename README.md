@@ -11,6 +11,12 @@ A solução é composta por dois projetos principais:
 
 ## ⚙️ Instalação
 
+Antes de iniciar o processo de instalação é preciso clonar o repositório. Como esse repositório depende do frontend [vacina-front](https://github.com/AlanJs26/vacina-front) como um submodulo git, é necessário clonar com uma flag extra.
+
+```sh
+git clone --recursive https://github.com/AlanJs26/VacinaApi
+```
+
 Para instalar as dependências do projeto, navegue até o diretório raiz e execute o seguinte comando:
 
 ```sh
@@ -40,10 +46,18 @@ A API estará disponível em `http://localhost:5139/swagger`. Em modo de desenvo
 
 #### Modo de Produção
 
-Para construir a imagem Docker e iniciar o container em modo de produção, execute o seguinte comando na raiz do projeto:
+Para construir a imagem Docker e iniciar a api e o frontend, execute o seguinte comando na raiz do projeto:
 
 ```sh
-docker-compose up --build
+docker-compose up --build frontend api
+```
+
+#### Modo de Produção (somente api)
+
+Para iniciar o container em modo de produção, execute o seguinte comando na raiz do projeto:
+
+```sh
+docker-compose up api
 ```
 
 A API estará disponível em `http://localhost:5139`.

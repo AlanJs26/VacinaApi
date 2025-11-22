@@ -1,0 +1,4 @@
+[submodule "vacina-front"]
+	path = vacina-front
+	url = https://github.com/AlanJs26/vacina-front.git
+	branch = main

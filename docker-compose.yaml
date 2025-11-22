@@ -1,3 +1,5 @@
+include:
+  - vacina-front/docker-compose.yaml
 services:
   api:
     build:

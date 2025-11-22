@@ -189,14 +189,14 @@ public class SistemaController(AppDbContext context) : ControllerBase
     var cartao = cartaoList.GroupBy(r => r.VaccineCard,
         (vaccineCard, records) => new
         {
-          VaccineCardId = vaccineCard.Id,
+          vaccineCard.Id,
           vaccineCard.Name,
           Records = records.Select(r => new
           {
-            VaccineRecordId = r.Id,
+            r.Id,
             r.Vaccine,
             r.Dose,
-            Date = r.ApplicationDate.ToShortDateString()
+            ApplicationDate = r.ApplicationDate.ToShortDateString()
           }
         )
         }
@@ -205,6 +205,17 @@ public class SistemaController(AppDbContext context) : ControllerBase
 
     return Ok(cartao);
   }
+
+  [HttpGet("vacinacao")]
+  public async Task<IActionResult> ListarVacinacao() => Ok(await _context.Records.Select(r => new
+  {
+    r.Id,
+    r.Person,
+    r.VaccineCard,
+    r.Vaccine,
+    r.Dose,
+    r.ApplicationDate
+  }).ToListAsync());
 
   // 4. Registrar Vacinação
   [HttpPost("vacinacao")]
